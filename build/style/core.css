@@ -1,0 +1,40 @@
+.subt{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.central{
+    margin-top: 20px !important;
+}
+
+.tweaka a{
+    color: gray !important;
+}
+
+.bb{
+    height: 50vw !important;
+    margin-top: 100px !important;
+}
+
+.align{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.alg{
+    margin-right: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+.dist{
+    margin-bottom: 20px;
+}
+
+.qtx{
+    display: flex ;
+    margin-bottom: 20px;
+}
+.qtx div{
+    margin-right: 1rem !important;
+
+}
