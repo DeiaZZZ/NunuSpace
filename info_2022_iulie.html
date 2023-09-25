@@ -229,6 +229,8 @@
             punctaj += castigat;
         }
 
+        punctaj = Number(punctaj).toFixed(2);
+
         msgbody = `Punctaj ${punctaj}\n\n` + msgbody;
 
         alert(msgbody);
