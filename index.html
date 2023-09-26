@@ -53,12 +53,8 @@
                 </span>
             </p>
             </div>
-            <a href="info_2022_iulie.html" class="panel-block is-active">
-                UBB info 2022 iulie
-            </a>
-            <a class="panel-block is-active">
-                More coming soon
-            </a>
+            <div id="itemi">
+            </div>
         </article>
 
         <div class="box">
@@ -144,5 +140,25 @@
         </div>
       </footer>
     <script src="https://kit.fontawesome.com/7a34b12c15.js" crossorigin="anonymous"></script>
+    <script>
+        let publicate = [
+          ["UBB INFO 2022 iulie" , "info_2022_iulie.html"],
+          ["UBB INFO 2022 septembrie" , "info_2022_sept.html"],
+          ["UBB INFO 2022 iulie" , "info_2023_iulie.html"],
+        ];
+
+      window.onload = () => {
+
+        publicate.map((pub) => {
+          document.getElementById("itemi").innerHTML += 
+            `
+            <a href="./subiecte/${pub[1]}" class="panel-block is-active">
+              ${pub[0]}
+            </a>
+            `;
+        })
+      }
+      document.getElementById("itemi");
+    </script>
 </body>
 </html>

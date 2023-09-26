@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style/core.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <title>NunuSpace</title>
+    </head>
+<body>
+    <section class="hero is-medium is-success">
+
+
+        <div class="hero-body">
+          <p class="title">
+            <a href="../index.html">UBB-INFO iulie 2022</a>
+          </p>
+          <p class="subtitle">
+            <a id="baremx" class="is-info" target="_blank" href="https://www.cs.ubbcluj.ro/files/admitere/2022-iulie/licenta/subiecte/Informatica%20raspunsuri%20%28toate%20limbile%29%20iulie%202022.pdf">
+                BAREM
+            </a>
+          </p>
+        </div>
+      </section>
+
+    <div class="container central bb">
+        <embed
+        id="rend"
+        type="application/pdf"
+        width="100%"
+        height="100%"
+        />
+    </div>
+
+    <section class="section">
+        <div class="container central bb">
+            <p class="title is-2">GRILE:</p>
+            <div id="formx" class="tile align">
+
+            </div>
+                    
+            <footer>
+                <div class="qtx">
+                    <div class="control">
+                        <button onclick="calculate()" class="button is-success">Calculeaza</button>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+</body>
+<script src="../code/core.js"></script>
+<script>
+    let pdf = "Informatica-iulie-2023.pdf";
+
+    document.getElementById("rend").setAttribute("src", `../info/${pdf}`); //render pdf
+    document.getElementById("baremx").setAttribute("href", `https://www.cs.ubbcluj.ro/files/admitere/2023-iulie/subiecte/54d7b5127f5f41d42f3078b2c0a1482f/Informatica%20iulie%202023%20RO.pdf`);
+
+    let answers = [
+        ['A','B'],
+        ['C'],
+        ['B'],
+        ['A','C'],
+        ['B'],
+
+        ['A','B','D'],
+        ['B'],
+        ['C'],
+        ['A','B','C'],
+        ['A'],
+
+        ['A','D'],
+        ['D'],
+        ['C'],
+        ['A','B','C'],
+        ['A','B'],
+
+        ['A'],
+        ['B'],
+        ['A','C'],
+        ['B','C'],
+        ['A'], 
+
+        ['A'],
+        ['B','D'],
+        ['C','D'],
+        ['C'],
+    ];
+
+    let nr_intrebari = answers.length;
+    let punctaj = 10, maxim = (100-punctaj) / nr_intrebari; //punctaj - initial
+
+    window.onload = () => {
+        init_true_ans(answers); //init. true_ans
+
+        init_form(document); //adauga raspunsurile ABCD
+
+        let all_btns = document.getElementsByClassName("tt");
+        all_btns = Array.from(all_btns);
+
+        init_btn_event(all_btns); //adauga eventuri la butonase
+    }
+</script>
+</html>
