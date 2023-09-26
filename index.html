@@ -40,10 +40,10 @@
             Continut
             </p>
             <p class="panel-tabs">
-            <a class="is-active">Toate</a>
-            <a>UBB info</a>
-            <a>UBB mate</a>
-            <a>C#</a>
+            <a id="allx" class="is-active">Toate</a>
+            <a id="infox">UBB info</a>
+            <a id="matex">UBB mate</a>
+            <a id="csharp">C#</a>
             </p>
             <div class="panel-block">
             <p class="control has-icons-left">
@@ -141,10 +141,12 @@
       </footer>
     <script src="https://kit.fontawesome.com/7a34b12c15.js" crossorigin="anonymous"></script>
     <script>
+      let current_tag = "allx";
+
         let publicate = [
-          ["UBB INFO 2022 iulie" , "info_2022_iulie.html"],
-          ["UBB INFO 2022 septembrie" , "info_2022_sept.html"],
-          ["UBB INFO 2022 iulie" , "info_2023_iulie.html"],
+          ["UBB INFO 2022 iulie" , "info_2022_iulie.html" , "infox"],
+          ["UBB INFO 2022 septembrie" , "info_2022_sept.html", "infox"],
+          ["UBB INFO 2023 iulie" , "info_2023_iulie.html", "infox"],
         ];
 
       window.onload = () => {
@@ -152,13 +154,29 @@
         publicate.map((pub) => {
           document.getElementById("itemi").innerHTML += 
             `
-            <a href="./subiecte/${pub[1]}" class="panel-block is-active">
+            <a href="./subiecte/${pub[1]}" id="allx ${pub[2]}" class="panel-block is-active">
               ${pub[0]}
             </a>
             `;
         })
       }
-      document.getElementById("itemi");
+      let tags = ["matex","allx","infox","csharp"];
+
+      tags.map((tag) => {
+        document.getElementById(tag).addEventListener("click", (el) =>{
+          document.getElementById(current_tag).classList.remove("is-active");
+          current_tag = el.target.id;
+
+          Array.from(document.getElementById("itemi").children).map((el) => {
+            if(!el.id.includes(current_tag)){
+              console.log(el);
+              el.style.display = "none";
+            }else el.style.display = "block";
+          })
+          el.target.classList.add("is-active");
+        })
+      })
+
     </script>
 </body>
 </html>
